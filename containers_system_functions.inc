@@ -1,6 +1,6 @@
 
 
-// ---- Узнаёт индекс времени в массиве, когда у контейнера начнётся аукцион
+// ---- Г“Г§Г­Г ВёГІ ГЁГ­Г¤ГҐГЄГ± ГўГ°ГҐГ¬ГҐГ­ГЁ Гў Г¬Г Г±Г±ГЁГўГҐ, ГЄГ®ГЈГ¤Г  Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  Г­Г Г·Г­ВёГІГ±Гї Г ГіГЄГ¶ГЁГ®Г­
 stock ContSystem:GetContStartTimeID(container_id)
 {
 	new current_hour, current_minute;
@@ -36,7 +36,7 @@ stock ContSystem:GetContStartTimeID(container_id)
 
 
 
-// ---- Рандомайзер приза в контейнере
+// ---- ГђГ Г­Г¤Г®Г¬Г Г©Г§ГҐГ° ГЇГ°ГЁГ§Г  Гў ГЄГ®Г­ГІГҐГ©Г­ГҐГ°ГҐ
 stock ContSystem:UpdatePrize(container_id, bool:update_class_block = false, bool:update_type_block = false, bool:sql_update = false)
 {
 	if(!update_class_block)
@@ -130,7 +130,7 @@ stock ContSystem:UpdatePrize(container_id, bool:update_class_block = false, bool
 
 
 
-// ---- Обновление 3D-текста и динамической зоны перед контейнером
+// ---- ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ 3D-ГІГҐГЄГ±ГІГ  ГЁ Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®Г© Г§Г®Г­Г» ГЇГҐГ°ГҐГ¤ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Г¬
 stock ContSystem:UpdateText(container_id)
 {
 	new temp_string[512];
@@ -150,8 +150,8 @@ stock ContSystem:UpdateText(container_id)
 			format
 			(
 				temp_string, sizeof(temp_string),
-				""cl_grey"- На данный момент аукцион не проходит\n\
-				"cl_orange"Ближайший аукцион будет через "cl_white"%d часов(-а) %02d минут(-ы)",
+				""cl_grey"- ГЌГ  Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ Г ГіГЄГ¶ГЁГ®Г­ Г­ГҐ ГЇГ°Г®ГµГ®Г¤ГЁГІ\n\
+				"cl_orange"ГЃГ«ГЁГ¦Г Г©ГёГЁГ© Г ГіГЄГ¶ГЁГ®Г­ ГЎГіГ¤ГҐГІ Г·ГҐГ°ГҐГ§ "cl_white"%d Г·Г Г±Г®Гў(-Г ) %02d Г¬ГЁГ­ГіГІ(-Г»)",
 				start_total_minutes / 60,
 				start_total_minutes % 60
 			);
@@ -163,9 +163,9 @@ stock ContSystem:UpdateText(container_id)
 				format
 				(
 					temp_string, sizeof(temp_string),
-					""cl_orange"Контейнер №%d\n\
-					"cl_grey"Класс контейнера: "cl_white"%s\n\
-					"cl_grey"Сумма начальной ставки: "cl_white"%d$\n\n\
+					""cl_orange"ГЉГ®Г­ГІГҐГ©Г­ГҐГ° В№%d\n\
+					"cl_grey"ГЉГ«Г Г±Г± ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г : "cl_white"%s\n\
+					"cl_grey"Г‘ГіГ¬Г¬Г  Г­Г Г·Г Г«ГјГ­Г®Г© Г±ГІГ ГўГЄГЁ: "cl_white"%d$\n\n\
 					"cl_grey"'Left ALT'",
 					container_id+1,
 					GetContainerClassStr(container_id),
@@ -180,12 +180,12 @@ stock ContSystem:UpdateText(container_id)
 				format
 				(
 					temp_string, sizeof(temp_string),
-					""cl_orange"Контейнер №%d\n\
-					"cl_grey"Класс контейнера: "cl_white"%s\n\
-					"cl_grey"Сумма начальной ставки: "cl_white"%d$\n\
-					"cl_grey"Текущая ставка: "cl_white"%d$\n\n\
-					"cl_orange"Последнюю ставку поставил: "cl_white"%s\n\
-					"cl_orange"До конца аукциона: "cl_white"%d секунд(-ы)\n\n\
+					""cl_orange"ГЉГ®Г­ГІГҐГ©Г­ГҐГ° В№%d\n\
+					"cl_grey"ГЉГ«Г Г±Г± ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г : "cl_white"%s\n\
+					"cl_grey"Г‘ГіГ¬Г¬Г  Г­Г Г·Г Г«ГјГ­Г®Г© Г±ГІГ ГўГЄГЁ: "cl_white"%d$\n\
+					"cl_grey"Г’ГҐГЄГіГ№Г Гї Г±ГІГ ГўГЄГ : "cl_white"%d$\n\n\
+					"cl_orange"ГЏГ®Г±Г«ГҐГ¤Г­ГѕГѕ Г±ГІГ ГўГЄГі ГЇГ®Г±ГІГ ГўГЁГ«: "cl_white"%s\n\
+					"cl_orange"Г„Г® ГЄГ®Г­Г¶Г  Г ГіГЄГ¶ГЁГ®Г­Г : "cl_white"%d Г±ГҐГЄГіГ­Г¤(-Г»)\n\n\
 					"cl_grey"'Left ALT'",
 					container_id+1,
 					GetContainerClassStr(container_id),
@@ -204,7 +204,7 @@ stock ContSystem:UpdateText(container_id)
 			format
 			(
 				temp_string, sizeof(temp_string),
-				""cl_orange"Контейнер ожидает своего победителя "cl_white"%s"cl_orange"!\n\n\
+				""cl_orange"ГЉГ®Г­ГІГҐГ©Г­ГҐГ° Г®Г¦ГЁГ¤Г ГҐГІ Г±ГўГ®ГҐГЈГ® ГЇГ®ГЎГҐГ¤ГЁГІГҐГ«Гї "cl_white"%s"cl_orange"!\n\n\
 				"cl_grey"'Left ALT'",
 				temp_name
 			);
@@ -240,7 +240,7 @@ stock ContSystem:UpdateText(container_id)
 
 
 
-// - Запуск аукциона у контейнера
+// - Г‡Г ГЇГіГ±ГЄ Г ГіГЄГ¶ГЁГ®Г­Г  Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:StartAuction(container_id)
 {
 	if(GetContainerData(container_id, EC_STATUS) != CONTAINER_STATUS_WAIT)
@@ -260,7 +260,7 @@ stock ContSystem:StartAuction(container_id)
 
 
 
-// - Узнаёт у какого контейнера находится игрок
+// - Г“Г§Г­Г ВёГІ Гі ГЄГ ГЄГ®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  Г­Г ГµГ®Г¤ГЁГІГ±Гї ГЁГЈГ°Г®ГЄ
 stock ContSystem:GetPlayerContID(playerid)
 {
 	new area[1];
@@ -280,7 +280,7 @@ stock ContSystem:GetPlayerContID(playerid)
 
 
 
-// - Создаёт новый контейнер для редактирования его позиции
+// - Г‘Г®Г§Г¤Г ВёГІ Г­Г®ГўГ»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° Г¤Г«Гї Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГҐГЈГ® ГЇГ®Г§ГЁГ¶ГЁГЁ
 stock ContSystem:EditPlayerNewCont(playerid)
 {
 	new Float:temp_pos[4];
@@ -301,17 +301,17 @@ stock ContSystem:EditPlayerNewCont(playerid)
 	return EditObject(playerid, edit_player_container_id [playerid]);
 }
 
-// - Выдаёт игроку победившему в аукционе приз
+// - Г‚Г»Г¤Г ВёГІ ГЁГЈГ°Г®ГЄГі ГЇГ®ГЎГҐГ¤ГЁГўГёГҐГ¬Гі Гў Г ГіГЄГ¶ГЁГ®Г­ГҐ ГЇГ°ГЁГ§
 stock ContSystem:GiveContainerPrize(container_id)
 {
 	switch(GetContainerData(container_id, EC_TYPE))
 	{
 		case CONTAINER_TYPE_CAR:
 		{
-			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Вы выиграли транспорт "cl_white"'%s'", GetVehicleName(GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE)-400));
+			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Г‚Г» ГўГ»ГЁГЈГ°Г Г«ГЁ ГІГ°Г Г­Г±ГЇГ®Г°ГІ "cl_white"'%s'", GetVehicleName(GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE)-400));
 			
 			/*
-				Логирование: игрок %d забрал выигранный транспорт %d 
+				Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ %d Г§Г ГЎГ°Г Г« ГўГ»ГЁГЈГ°Г Г­Г­Г»Г© ГІГ°Г Г­Г±ГЇГ®Г°ГІ %d 
 
 				GetContainerData(container_id, EC_PLAYER_ID)
 				GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -321,27 +321,27 @@ stock ContSystem:GiveContainerPrize(container_id)
 
 			/*
 
-				ВЫДАТЬ ИГРОКУ ТРАНСПОРТ (ID - accesories_priz [GetContainerData(container_id, EC_CLASS)][GetContainerData(container_id, EC_PRIZE)][0])
+				Г‚Г›Г„ГЂГ’Гњ Г€ГѓГђГЋГЉГ“ Г’ГђГЂГЌГ‘ГЏГЋГђГ’ (ID - accesories_priz [GetContainerData(container_id, EC_CLASS)][GetContainerData(container_id, EC_PRIZE)][0])
 
 			*/
 		}
 		case CONTAINER_TYPE_ACCESORYS:
 		{
-			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Вы выиграли %s ID %d", (GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_TYPE) == CONTAINER_TYPE_PRIZE_CLOTH) ? ("одежду") : ("аксессуар"), GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE));
+			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Г‚Г» ГўГ»ГЁГЈГ°Г Г«ГЁ %s ID %d", (GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_TYPE) == CONTAINER_TYPE_PRIZE_CLOTH) ? ("Г®Г¤ГҐГ¦Г¤Гі") : ("Г ГЄГ±ГҐГ±Г±ГіГ Г°"), GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE));
 		
 			/*
-				Выдать игроку %d скин/аксессур
+				Г‚Г»Г¤Г ГІГј ГЁГЈГ°Г®ГЄГі %d Г±ГЄГЁГ­/Г ГЄГ±ГҐГ±Г±ГіГ°
 				
 				GetContainerData(container_id, EC_PLAYER_ID)
 
 				if(GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_TYPE) == CONTAINER_TYPE_PRIZE_CLOTH)
 				{
-					Выдаём СКИН %d
+					Г‚Г»Г¤Г ВёГ¬ Г‘ГЉГ€ГЌ %d
 					GetPrizeData(GetContainerData(containerid, EC_PRIZE), EC_PRIZE_VALUE)
 				}
 				else
 				{
-					Выдаём АКСЕССУАР %d
+					Г‚Г»Г¤Г ВёГ¬ ГЂГЉГ‘Г…Г‘Г‘Г“ГЂГђ %d
 					GetPrizeData(GetContainerData(containerid, EC_PRIZE), EC_PRIZE_VALUE)
 				}
 
@@ -350,7 +350,7 @@ stock ContSystem:GiveContainerPrize(container_id)
 
 
 			/*
-				Логирование: игрок %d забрал выигранный аксессуар или скин %d 
+				Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ %d Г§Г ГЎГ°Г Г« ГўГ»ГЁГЈГ°Г Г­Г­Г»Г© Г ГЄГ±ГҐГ±Г±ГіГ Г° ГЁГ«ГЁ Г±ГЄГЁГ­ %d 
 
 				GetContainerData(container_id, EC_PLAYER_ID)
 				GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -363,7 +363,7 @@ stock ContSystem:GiveContainerPrize(container_id)
 				case CONTAINER_TYPE_PRIZE_EXP:
 				{
 					/*
-						Выдать игроку %d опыт в количестве %d
+						Г‚Г»Г¤Г ГІГј ГЁГЈГ°Г®ГЄГі %d Г®ГЇГ»ГІ Гў ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГҐ %d
 
 						GetContainerData(container_id, EC_PLAYER_ID)
 						GetPrizeDate(GetContainerData(conatiner_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -373,7 +373,7 @@ stock ContSystem:GiveContainerPrize(container_id)
 
 
 					/*
-						Логирование: игрок %d выиграл опыт в размере %d
+						Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ %d ГўГ»ГЁГЈГ°Г Г« Г®ГЇГ»ГІ Гў Г°Г Г§Г¬ГҐГ°ГҐ %d
 
 						GetContainerData(container_id, EC_PLAYER_ID)
 						GetPrizeDate(GetContainerData(conatiner_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -384,7 +384,7 @@ stock ContSystem:GiveContainerPrize(container_id)
 					GiveMoney(GetContainerData(container_id, EC_PLAYER_ID), GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE));
 
 					/*
-						Логирование: игрок %d выиграл денежные средства в размере %d$
+						Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ %d ГўГ»ГЁГЈГ°Г Г« Г¤ГҐГ­ГҐГ¦Г­Г»ГҐ Г±Г°ГҐГ¤Г±ГІГўГ  Гў Г°Г Г§Г¬ГҐГ°ГҐ %d$
 
 						GetContainerData(container_id, EC_PLAYER_ID)
 						GetPrizeDate(GetContainerData(conatiner_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -393,14 +393,14 @@ stock ContSystem:GiveContainerPrize(container_id)
 				case CONTAINER_TYPE_PRIZE_DONATE:
 				{
 					/*
-						Выдаить игроку %d донат в количестве %d
+						Г‚Г»Г¤Г ГЁГІГј ГЁГЈГ°Г®ГЄГі %d Г¤Г®Г­Г ГІ Гў ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГҐ %d
 
 						GetContainerData(container_id, EC_PLAYER_ID)
 						GetPrizeDate(GetContainerData(conatiner_id, EC_PRIZE), EC_PRIZE_VALUE)
 
 					*/
 					/*
-						Логирование: игрок %d выиграл донат в размере %d
+						Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ %d ГўГ»ГЁГЈГ°Г Г« Г¤Г®Г­Г ГІ Гў Г°Г Г§Г¬ГҐГ°ГҐ %d
 
 						GetContainerData(container_id, EC_PLAYER_ID)
 						GetPrizeDate(GetContainerData(conatiner_id, EC_PRIZE), EC_PRIZE_VALUE)
@@ -409,7 +409,7 @@ stock ContSystem:GiveContainerPrize(container_id)
 			}
 			
 
-			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Вы выиграли %s (%d)", container_prize_types_str [GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_TYPE)], GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE));
+			SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Г‚Г» ГўГ»ГЁГЈГ°Г Г«ГЁ %s (%d)", container_prize_types_str [GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_TYPE)], GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_VALUE));
 		}
 	}
 
@@ -423,12 +423,12 @@ stock ContSystem:GiveContainerPrize(container_id)
 
 
 
-// ---- Продаёт выигранный приз
+// ---- ГЏГ°Г®Г¤Г ВёГІ ГўГ»ГЁГЈГ°Г Г­Г­Г»Г© ГЇГ°ГЁГ§
 stock ContSystem:SellContainerPrize(container_id)
 {
 	new sell_prize_price = floatround(CONTAINER_PRIZE_SELL_PERCENT*GetPrizeData(GetContainerData(container_id, EC_PRIZE), EC_PRIZE_PRICE));
 
-	SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Вы продали приз за "cl_white"%d$", sell_prize_price);
+	SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Г‚Г» ГЇГ°Г®Г¤Г Г«ГЁ ГЇГ°ГЁГ§ Г§Г  "cl_white"%d$", sell_prize_price);
 	GiveMoney(GetContainerData(container_id, EC_PLAYER_ID), sell_prize_price);
 
 	ContSystem:DeleteContObject(container_id);
@@ -441,7 +441,7 @@ stock ContSystem:SellContainerPrize(container_id)
 
 
 
-// ---- Открывает контейнер
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°
 stock ContSystem:OpenContainer(playerid, container_id)
 {
 	new Float:temp_rot[2][3];
@@ -505,7 +505,7 @@ stock ContSystem:OpenContainer(playerid, container_id)
 
 
 
-// ---- Создание оюъекта контейнера
+// ---- Г‘Г®Г§Г¤Г Г­ГЁГҐ Г®ГѕГєГҐГЄГІГ  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:CreateContObject(container_id)
 {
 	GetContainerData(container_id, EC_OBJECT_ID) = CreateObject(CONTAINER_OBJECT_ID, 
@@ -562,7 +562,7 @@ stock ContSystem:CreateContObject(container_id)
 
 
 
-// ---- Удаляет объект контейнера
+// ---- Г“Г¤Г Г«ГїГҐГІ Г®ГЎГєГҐГЄГІ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:DeleteContObject(container_id)
 {
 	DestroyObject(GetContainerData(container_id, EC_OBJECT_ID));
@@ -587,7 +587,7 @@ stock ContSystem:DeleteContObject(container_id)
 
 
 
-// ---- Обновляет координаты контейнера в базе данных
+// ---- ГЋГЎГ­Г®ГўГ«ГїГҐГІ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  Гў ГЎГ Г§ГҐ Г¤Г Г­Г­Г»Гµ
 stock ContSystem:UpdateContainerPos(container_id)
 {
 	new temp_string[256];
@@ -607,7 +607,7 @@ stock ContSystem:UpdateContainerPos(container_id)
 
 
 
-// ---- Добавляет и загружает новый контейнер в (из) базы данных
+// ---- Г„Г®ГЎГ ГўГ«ГїГҐГІ ГЁ Г§Г ГЈГ°ГіГ¦Г ГҐГІ Г­Г®ГўГ»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° Гў (ГЁГ§) ГЎГ Г§Г» Г¤Г Г­Г­Г»Гµ
 stock ContSystem:AddNewContainer(Float:fX, Float:fY, Float:fZ, Float:fRotZ)
 {
 	new temp_string[256];
@@ -624,7 +624,7 @@ stock ContSystem:AddNewContainer(Float:fX, Float:fY, Float:fZ, Float:fRotZ)
 
 
 
-// ---- Полное удаление контейнера
+// ---- ГЏГ®Г«Г­Г®ГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:DeleteContainer(container_id)
 {
 	SetContainerData(container_id, EC_STATUS, CONTAINER_STATUS_NONE);
@@ -646,7 +646,7 @@ stock ContSystem:DeleteContainer(container_id)
 
 
 
-// ---- Добавление нового приза в структуру
+// ---- Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г  Гў Г±ГІГ°ГіГЄГІГіГ°Гі
 stock ContSystem:AddNewPrize(prize_sql_id, prize_class, prize_type, prize_value, prize_price = 0)
 {
 	for(new prize_id; prize_id < MAX_CONTAINER_PRIZES; prize_id++)
@@ -664,7 +664,7 @@ stock ContSystem:AddNewPrize(prize_sql_id, prize_class, prize_type, prize_value,
 
 
 
-// ---- Добавление и загрузка нового приза в (из) БД
+// ---- Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁ Г§Г ГЈГ°ГіГ§ГЄГ  Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г  Гў (ГЁГ§) ГЃГ„
 stock ContSystem:CreateNewPrize(prize_class, prize_type, prize_value, prize_price = 0)
 {
 	new temp_string[256];
@@ -682,7 +682,7 @@ stock ContSystem:CreateNewPrize(prize_class, prize_type, prize_value, prize_pric
 
 
 
-// ---- Обновление приза в базе данных
+// ---- ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ°ГЁГ§Г  Гў ГЎГ Г§ГҐ Г¤Г Г­Г­Г»Гµ
 stock ContSystem:UpdatePrizeSQL(prize_id)
 {
 	new temp_string[512];
@@ -702,7 +702,7 @@ stock ContSystem:UpdatePrizeSQL(prize_id)
 
 
 
-// ---- Полное удаление приза
+// ---- ГЏГ®Г«Г­Г®ГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЇГ°ГЁГ§Г 
 stock ContSystem:DeletePrize(prize_id)
 {
 	new temp_string[256];
@@ -719,20 +719,20 @@ stock ContSystem:DeletePrize(prize_id)
 
 //==============================================================================
 
-// ---- Открывает главное меню контейнеров
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГЈГ«Г ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў
 stock ContSystem:ShowContMenu(playerid)
 {
 	return ShowPlayerDialog(playerid, DIALOG_CONTMENU, DIALOG_STYLE_LIST,
-		""cl_orange"Меню контейнеров",
-		""cl_orange"- "cl_white"Список контейнеров\n\
-		"cl_orange"- "cl_white"Создание контейнера\n\
-		"cl_orange"- "cl_white"Редактирования списка призов",
-		"Выбрать", "Закрыть");
+		""cl_orange"ГЊГҐГ­Гѕ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў",
+		""cl_orange"- "cl_white"Г‘ГЇГЁГ±Г®ГЄ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў\n\
+		"cl_orange"- "cl_white"Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г \n\
+		"cl_orange"- "cl_white"ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї Г±ГЇГЁГ±ГЄГ  ГЇГ°ГЁГ§Г®Гў",
+		"Г‚Г»ГЎГ°Г ГІГј", "Г‡Г ГЄГ°Г»ГІГј");
 }
 
 
 
-// ---- Открывает список соуществующих контейнеров
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г±ГЇГЁГ±Г®ГЄ Г±Г®ГіГ№ГҐГ±ГІГўГіГѕГ№ГЁГµ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў
 stock ContSystem:ShowContListMenu(playerid)
 {
 	STRING_GLOBAL[0] = EOS;
@@ -741,7 +741,7 @@ stock ContSystem:ShowContListMenu(playerid)
 	format
 	(
 		STRING_GLOBAL, sizeof(STRING_GLOBAL),
-		"Контейнер\tСтатус"
+		"ГЉГ®Г­ГІГҐГ©Г­ГҐГ°\tГ‘ГІГ ГІГіГ±"
 	);
 
 	for(new i; i < MAX_CONTAINERS_COUNT; i++)
@@ -751,7 +751,7 @@ stock ContSystem:ShowContListMenu(playerid)
 			format
 			(
 				STRING_GLOBAL, sizeof(STRING_GLOBAL),
-				"%s\n"cl_white"Контейнер "cl_orange"№%d\t"cl_grey"[%s]",
+				"%s\n"cl_white"ГЉГ®Г­ГІГҐГ©Г­ГҐГ° "cl_orange"В№%d\t"cl_grey"[%s]",
 				STRING_GLOBAL, i+1, GetContainerStatusStr(i)
 			);
 			edit_player_container_listitem [playerid][counter] = i;
@@ -760,15 +760,15 @@ stock ContSystem:ShowContListMenu(playerid)
 	}
 
 	if(counter <= 0)
-		return SendErrorMessage(playerid, "На данный момент на сервере нет контейнеров");
+		return SendErrorMessage(playerid, "ГЌГ  Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ Г­ГҐГІ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў");
 	else return ShowPlayerDialog(playerid, DIALOG_CONTMENU_LIST, DIALOG_STYLE_TABLIST_HEADERS,
-		""cl_orange"Меню управления контейнерами", STRING_GLOBAL,
-		"Далее", "Закрыть");
+		""cl_orange"ГЊГҐГ­Гѕ ГіГЇГ°Г ГўГ«ГҐГ­ГЁГї ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г Г¬ГЁ", STRING_GLOBAL,
+		"Г„Г Г«ГҐГҐ", "Г‡Г ГЄГ°Г»ГІГј");
 }
 
 
 
-// ---- Открывает меню редактирования контейнера
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:ShowContEdit(playerid)
 {
 	STRING_GLOBAL[0] = EOS;
@@ -776,20 +776,20 @@ stock ContSystem:ShowContEdit(playerid)
 	format
 	(
 		STRING_GLOBAL, sizeof(STRING_GLOBAL),
-		""cl_orange"- "cl_white"Начать аукцион\n\
-		"cl_orange"- "cl_white"Завершить аукцион\n\
-		"cl_orange"- "cl_white"Редактирование приза\n\
-		"cl_orange"- "cl_white"Изменить местоположение контейнера\n\
-		"cl_orange"- "cl_white"Удалить контейнер"
+		""cl_orange"- "cl_white"ГЌГ Г·Г ГІГј Г ГіГЄГ¶ГЁГ®Г­\n\
+		"cl_orange"- "cl_white"Г‡Г ГўГҐГ°ГёГЁГІГј Г ГіГЄГ¶ГЁГ®Г­\n\
+		"cl_orange"- "cl_white"ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°ГЁГ§Г \n\
+		"cl_orange"- "cl_white"Г€Г§Г¬ГҐГ­ГЁГІГј Г¬ГҐГ±ГІГ®ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г \n\
+		"cl_orange"- "cl_white"Г“Г¤Г Г«ГЁГІГј ГЄГ®Г­ГІГҐГ©Г­ГҐГ°"
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONTMENU_EDIT, DIALOG_STYLE_LIST,
-		""cl_orange"Редактирование контейнера", STRING_GLOBAL,
-		"Выбрать", "Назад");
+		""cl_orange"ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГҐ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ", STRING_GLOBAL,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает диалог подтверждения ставки на контейнер
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¤ГЁГ Г«Г®ГЈ ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГї Г±ГІГ ГўГЄГЁ Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°
 stock ContSystem:ShowAcceptBid(playerid, container_id)
 {
 	STRING_GLOBAL[0] = EOS;
@@ -799,8 +799,8 @@ stock ContSystem:ShowAcceptBid(playerid, container_id)
 		format
 		(
 			STRING_GLOBAL, sizeof(STRING_GLOBAL),
-			""cl_orange"- "cl_white"Текущая сумма ставки "cl_grey"%d$\n\n\
-			"cl_grey"Вы желаете поставить "cl_white"%d$ (+%d) "cl_grey"на контейнер "cl_white"№%d"cl_grey"?",
+			""cl_orange"- "cl_white"Г’ГҐГЄГіГ№Г Гї Г±ГіГ¬Г¬Г  Г±ГІГ ГўГЄГЁ "cl_grey"%d$\n\n\
+			"cl_grey"Г‚Г» Г¦ГҐГ«Г ГҐГІГҐ ГЇГ®Г±ГІГ ГўГЁГІГј "cl_white"%d$ (+%d) "cl_grey"Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° "cl_white"В№%d"cl_grey"?",
 			GetContainerData(container_id, EC_PRICE),
 			GetContainerData(container_id, EC_PRICE) + CONTAINER_BID_PRICE,
 			CONTAINER_BID_PRICE,
@@ -812,21 +812,21 @@ stock ContSystem:ShowAcceptBid(playerid, container_id)
 		format
 		(
 			STRING_GLOBAL, sizeof(STRING_GLOBAL),
-			""cl_orange"- "cl_white"Минимальная сумма ставки для данного контейнера составляет "cl_grey"%d$\n\n\
-			"cl_grey"Вы действительно хотите поставить "cl_white"%d$ на контейнер "cl_grey"№%d?",
+			""cl_orange"- "cl_white"ГЊГЁГ­ГЁГ¬Г Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г  Г±ГІГ ГўГЄГЁ Г¤Г«Гї Г¤Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  Г±Г®Г±ГІГ ГўГ«ГїГҐГІ "cl_grey"%d$\n\n\
+			"cl_grey"Г‚Г» Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г® ГµГ®ГІГЁГІГҐ ГЇГ®Г±ГІГ ГўГЁГІГј "cl_white"%d$ Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° "cl_grey"В№%d?",
 			GetContainerData(container_id, EC_START_PRICE),
 			GetContainerData(container_id, EC_START_PRICE),
 			container_id+1
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONT_ACCEPT_BID, DIALOG_STYLE_MSGBOX,
-		""cl_orange"Аукцион контейнеров", STRING_GLOBAL,
-		"Да", "Нет");
+		""cl_orange"ГЂГіГЄГ¶ГЁГ®Г­ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў", STRING_GLOBAL,
+		"Г„Г ", "ГЌГҐГІ");
 }
 
 
 
-// ---- Открывает диалог действия с призом для победившего игрока
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¤ГЁГ Г«Г®ГЈ Г¤ГҐГ©Г±ГІГўГЁГї Г± ГЇГ°ГЁГ§Г®Г¬ Г¤Г«Гї ГЇГ®ГЎГҐГ¤ГЁГўГёГҐГЈГ® ГЁГЈГ°Г®ГЄГ 
 stock ContSystem:ShowTakePrizeDialog(playerid)
 {
 	new temp_string[512];
@@ -842,7 +842,7 @@ stock ContSystem:ShowTakePrizeDialog(playerid)
 			format
 			(
 				temp_string, sizeof(temp_string),
-				""cl_white"Вы желаете забрать танспорт "cl_orange"'%s'"cl_white"или продать в фонд порта за "cl_orange"%d$"cl_white"?",
+				""cl_white"Г‚Г» Г¦ГҐГ«Г ГҐГІГҐ Г§Г ГЎГ°Г ГІГј ГІГ Г­Г±ГЇГ®Г°ГІ "cl_orange"'%s'"cl_white"ГЁГ«ГЁ ГЇГ°Г®Г¤Г ГІГј Гў ГґГ®Г­Г¤ ГЇГ®Г°ГІГ  Г§Г  "cl_orange"%d$"cl_white"?",
 				GetVehicleName(GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_VALUE)-400),
 				floatround(CONTAINER_PRIZE_SELL_PERCENT*GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_PRICE))
 			);
@@ -852,8 +852,8 @@ stock ContSystem:ShowTakePrizeDialog(playerid)
 			format
 			(
 				temp_string, sizeof(temp_string),
-				""cl_white"Вы желаете забрать "cl_orange"%s ID %d "cl_white"или продать в фонд порта за "cl_orange"%d$"cl_white"?",
-				(GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_TYPE) == CONTAINER_TYPE_PRIZE_CLOTH) ? ("одежду") : ("аксессуар"),
+				""cl_white"Г‚Г» Г¦ГҐГ«Г ГҐГІГҐ Г§Г ГЎГ°Г ГІГј "cl_orange"%s ID %d "cl_white"ГЁГ«ГЁ ГЇГ°Г®Г¤Г ГІГј Гў ГґГ®Г­Г¤ ГЇГ®Г°ГІГ  Г§Г  "cl_orange"%d$"cl_white"?",
+				(GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_TYPE) == CONTAINER_TYPE_PRIZE_CLOTH) ? ("Г®Г¤ГҐГ¦Г¤Гі") : ("Г ГЄГ±ГҐГ±Г±ГіГ Г°"),
 				GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_VALUE),
 				floatround(CONTAINER_PRIZE_SELL_PERCENT*GetPrizeData(GetContainerData(GetPlayerDataEx(playerid, P_TAKE_PRIZE_CONTAINER_ID), EC_PRIZE), EC_PRIZE_PRICE))
 			);
@@ -865,13 +865,13 @@ stock ContSystem:ShowTakePrizeDialog(playerid)
 		}
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONTAINER_TAKE_PRIZE, DIALOG_STYLE_MSGBOX,
-		""cl_orange"Выберите действие с призом", temp_string,
-		"Забрать", "Продать");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ Г¤ГҐГ©Г±ГІГўГЁГҐ Г± ГЇГ°ГЁГ§Г®Г¬", temp_string,
+		"Г‡Г ГЎГ°Г ГІГј", "ГЏГ°Г®Г¤Г ГІГј");
 }
 
 
 
-// ---- Открывает меню редактирования приза в конкретном контейнере
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГЇГ°ГЁГ§Г  Гў ГЄГ®Г­ГЄГ°ГҐГІГ­Г®Г¬ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°ГҐ
 stock ContSystem:ShowEditPrizeMenu(playerid, container_id)
 {
 	new temp_string[512];
@@ -879,9 +879,9 @@ stock ContSystem:ShowEditPrizeMenu(playerid, container_id)
 	format
 	(
 		temp_string, sizeof(temp_string),
-		"Пункт\tЗначение\n\
-		"cl_white"Класс контейнера\t"cl_orange"["cl_grey"%s"cl_orange"]\n\
-		"cl_white"Тип контейнера\t"cl_orange"["cl_grey"%s"cl_orange"]",
+		"ГЏГіГ­ГЄГІ\tГ‡Г­Г Г·ГҐГ­ГЁГҐ\n\
+		"cl_white"ГЉГ«Г Г±Г± ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г \t"cl_orange"["cl_grey"%s"cl_orange"]\n\
+		"cl_white"Г’ГЁГЇ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г \t"cl_orange"["cl_grey"%s"cl_orange"]",
 		GetContainerClassStr(container_id),
 		GetContainerTypeStr(container_id)
 
@@ -889,13 +889,13 @@ stock ContSystem:ShowEditPrizeMenu(playerid, container_id)
 
 	ContSystem:UpdateText(container_id);
 	return ShowPlayerDialog(playerid, DIALOG_CONTMENU_EDIT_PRIZE, DIALOG_STYLE_TABLIST_HEADERS,
-		""cl_orange"Редактирование приза", temp_string,
-		"Выбрать", "Закрыть");
+		""cl_orange"ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°ГЁГ§Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "Г‡Г ГЄГ°Г»ГІГј");
 }
 
 
 
-// ---- Открывает меню изменения класса конкретного контейнера
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї ГЄГ«Г Г±Г±Г  ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:ShowChangeContClass(playerid, container_id)
 {
 	new temp_string[128];
@@ -911,13 +911,13 @@ stock ContSystem:ShowChangeContClass(playerid, container_id)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CNTM_EDIT_PRIZE_CLASS, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите класс контейнера", temp_string,
-		"Выбрать", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГЄГ«Г Г±Г± ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню изменения типа конкретного контейнера
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї ГІГЁГЇГ  ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г 
 stock ContSystem:ShowChangeContType(playerid, container_id)
 {
 	new temp_string[128];
@@ -933,13 +933,13 @@ stock ContSystem:ShowChangeContType(playerid, container_id)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CNTM_EDIT_PRIZE_TYPE, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите тип контейнера", temp_string,
-		"Выбрать", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГІГЁГЇ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает список всех призов (с возможность добавления нового приза)
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г±ГЇГЁГ±Г®ГЄ ГўГ±ГҐГµ ГЇГ°ГЁГ§Г®Гў (Г± ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГј Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г )
 stock ContSystem:ShowPrizeList(playerid)
 {
 	STRING_GLOBAL[0] = EOS;
@@ -948,7 +948,7 @@ stock ContSystem:ShowPrizeList(playerid)
 	format
 	(
 		STRING_GLOBAL, sizeof(STRING_GLOBAL),
-		""cl_orange"- Добавить приз"
+		""cl_orange"- Г„Г®ГЎГ ГўГЁГІГј ГЇГ°ГЁГ§"
 	);
 
 	for(new prize_id; prize_id < MAX_CONTAINER_PRIZES; prize_id++)
@@ -958,7 +958,7 @@ stock ContSystem:ShowPrizeList(playerid)
 		format
 		(
 			STRING_GLOBAL, sizeof(STRING_GLOBAL),
-			"%s\n"cl_white"%s "cl_grey"(%d) "cl_white"- %s класс",
+			"%s\n"cl_white"%s "cl_grey"(%d) "cl_white"- %s ГЄГ«Г Г±Г±",
 			STRING_GLOBAL,
 			container_prize_types_str [GetPrizeData(prize_id, EC_PRIZE_TYPE)],
 			GetPrizeData(prize_id, EC_PRIZE_VALUE),
@@ -969,13 +969,13 @@ stock ContSystem:ShowPrizeList(playerid)
 		counter++;
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONTAINER_PRIZE_LIST, DIALOG_STYLE_LIST,
-		""cl_orange"Список призов", STRING_GLOBAL,
-		"Далее", "Закрыть");
+		""cl_orange"Г‘ГЇГЁГ±Г®ГЄ ГЇГ°ГЁГ§Г®Гў", STRING_GLOBAL,
+		"Г„Г Г«ГҐГҐ", "Г‡Г ГЄГ°Г»ГІГј");
 }
 
 
 
-// ---- Открывает выбор класса для нового приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГўГ»ГЎГ®Г° ГЄГ«Г Г±Г±Г  Г¤Г«Гї Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:ShowAddNewPrize(playerid)
 {
 	new temp_string[256];
@@ -990,13 +990,13 @@ stock ContSystem:ShowAddNewPrize(playerid)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_ADD_CLASS, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите класс приза", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГЄГ«Г Г±Г± ГЇГ°ГЁГ§Г ", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает выбор типа для нового приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГўГ»ГЎГ®Г° ГІГЁГЇГ  Г¤Г«Гї Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:ShowAddNewPrizeType(playerid)
 {
 	new temp_string[512];
@@ -1011,74 +1011,74 @@ stock ContSystem:ShowAddNewPrizeType(playerid)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_ADD_TYPE, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите тип приза", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГІГЁГЇ ГЇГ°ГЁГ§Г ", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает поле ввода нового ID (значения) приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГЇГ®Г«ГҐ ГўГўГ®Г¤Г  Г­Г®ГўГ®ГЈГ® ID (Г§Г­Г Г·ГҐГ­ГЁГї) ГЇГ°ГЁГ§Г 
 stock ContSystem:ShowAddNewPrizeValue(playerid, error_string[] = "")
 {
 	new temp_string[512];
 	format
 	(
 		temp_string, sizeof(temp_string),
-		""cl_orange"- "cl_white"Введите ID транспорта, одежды, аксессуара или количество игровой ценности\n\n\
+		""cl_orange"- "cl_white"Г‚ГўГҐГ¤ГЁГІГҐ ID ГІГ°Г Г­Г±ГЇГ®Г°ГІГ , Г®Г¤ГҐГ¦Г¤Г», Г ГЄГ±ГҐГ±Г±ГіГ Г°Г  ГЁГ«ГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЁГЈГ°Г®ГўГ®Г© Г¶ГҐГ­Г­Г®Г±ГІГЁ\n\n\
 		%s",
 		error_string
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_ADD_VALUE, DIALOG_STYLE_INPUT,
-		""cl_orange"Добавление нового приза", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г ", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает поле ввода гос. стоимости нового приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГЇГ®Г«ГҐ ГўГўГ®Г¤Г  ГЈГ®Г±. Г±ГІГ®ГЁГ¬Г®Г±ГІГЁ Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:ShowAddNewPrizePrice(playerid, error_string[] = "")
 {
 	new temp_string[512];
 	format
 	(
 		temp_string, sizeof(temp_string),
-		""cl_orange"- "cl_white"Введите полную гос. стоимость данного приза\n\n\
+		""cl_orange"- "cl_white"Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ®Г«Г­ГіГѕ ГЈГ®Г±. Г±ГІГ®ГЁГ¬Г®Г±ГІГј Г¤Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г \n\n\
 		%s",
 		error_string
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_ADD_PRICE, DIALOG_STYLE_INPUT,
-		""cl_orange"Добавление нового приза", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ Г­Г®ГўГ®ГЈГ® ГЇГ°ГЁГ§Г ", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню редактирования конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:ShowEditPrize(playerid, prize_id)
 {
 	new temp_string[512];
 	format
 	(
 		temp_string, sizeof(temp_string),
-		"Параметр\tЗначение\n\
-		"cl_white"Класс приза\t"cl_orange"["cl_grey"%s"cl_orange"]\n\
-		"cl_white"Тип приза\t"cl_orange"["cl_grey"%s"cl_orange"]\n\
-		"cl_white"Выдаваемый ID/количество\t"cl_orange"["cl_grey"%d"cl_orange"]\n\
-		"cl_white"Полная гос. стоимость\t"cl_orange"["cl_grey"%d$"cl_orange"]\n\
-		"cl_orange"- Удалить приз",
+		"ГЏГ Г°Г Г¬ГҐГІГ°\tГ‡Г­Г Г·ГҐГ­ГЁГҐ\n\
+		"cl_white"ГЉГ«Г Г±Г± ГЇГ°ГЁГ§Г \t"cl_orange"["cl_grey"%s"cl_orange"]\n\
+		"cl_white"Г’ГЁГЇ ГЇГ°ГЁГ§Г \t"cl_orange"["cl_grey"%s"cl_orange"]\n\
+		"cl_white"Г‚Г»Г¤Г ГўГ ГҐГ¬Г»Г© ID/ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®\t"cl_orange"["cl_grey"%d"cl_orange"]\n\
+		"cl_white"ГЏГ®Г«Г­Г Гї ГЈГ®Г±. Г±ГІГ®ГЁГ¬Г®Г±ГІГј\t"cl_orange"["cl_grey"%d$"cl_orange"]\n\
+		"cl_orange"- Г“Г¤Г Г«ГЁГІГј ГЇГ°ГЁГ§",
 		container_class_str [GetPrizeData(prize_id, EC_PRIZE_CLASS)],
 		container_prize_types_str [GetPrizeData(prize_id, EC_PRIZE_TYPE)],
 		GetPrizeData(prize_id, EC_PRIZE_VALUE),
 		GetPrizeData(prize_id, EC_PRIZE_PRICE)
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONTMENU_PRIZE_EDIT, DIALOG_STYLE_TABLIST_HEADERS,
-		""cl_orange"Редактирование приза", temp_string,
-		"Выбрать", "Назад");
+		""cl_orange"ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°ГЁГ§Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню редактирования класса конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГЄГ«Г Г±Г±Г  ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:PrizeChangeClass(playerid)
 {
 	new temp_string[256];
@@ -1094,13 +1094,13 @@ stock ContSystem:PrizeChangeClass(playerid)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_CHANGE_CLASS, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите класс приза", temp_string,
-		"Выбрать", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГЄГ«Г Г±Г± ГЇГ°ГЁГ§Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню редактирования типа конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГІГЁГЇГ  ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:PrizeChangeType(playerid)
 {
 	new temp_string[256];
@@ -1116,55 +1116,55 @@ stock ContSystem:PrizeChangeType(playerid)
 		);
 	}
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_CHANGE_TYPE, DIALOG_STYLE_LIST,
-		""cl_orange"Выберите тип приза", temp_string,
-		"Выбрать", "Назад");
+		""cl_orange"Г‚Г»ГЎГҐГ°ГЁГІГҐ ГІГЁГЇ ГЇГ°ГЁГ§Г ", temp_string,
+		"Г‚Г»ГЎГ°Г ГІГј", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню редактирования ID (значения) конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ID (Г§Г­Г Г·ГҐГ­ГЁГї) ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:PrizeChangeValue(playerid, error_string[] = "")
 {
 	new temp_string[256];
 	format
 	(
 		temp_string, sizeof(temp_string),
-		""cl_orange"- "cl_white"Введите новый ID приза или количество игровых ценностей, выдаваемых при выигрыше\n\n\
+		""cl_orange"- "cl_white"Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ»Г© ID ГЇГ°ГЁГ§Г  ГЁГ«ГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЁГЈГ°Г®ГўГ»Гµ Г¶ГҐГ­Г­Г®Г±ГІГҐГ©, ГўГ»Г¤Г ГўГ ГҐГ¬Г»Гµ ГЇГ°ГЁ ГўГ»ГЁГЈГ°Г»ГёГҐ\n\n\
 		%s",
 		error_string
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_CHANGE_VALUE, DIALOG_STYLE_INPUT,
-		""cl_orange"Изменить приз", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г€Г§Г¬ГҐГ­ГЁГІГј ГЇГ°ГЁГ§", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает меню изменения гос. стоимости конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ Г¬ГҐГ­Гѕ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї ГЈГ®Г±. Г±ГІГ®ГЁГ¬Г®Г±ГІГЁ ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:PrizeChangePrice(playerid, error_string[] = "")
 {
 	new temp_string[256];
 	format
 	(
 		temp_string, sizeof(temp_string),
-		""cl_orange"- "cl_white"Введите новую гос. стоимость для приза\n\n\
+		""cl_orange"- "cl_white"Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГіГѕ ГЈГ®Г±. Г±ГІГ®ГЁГ¬Г®Г±ГІГј Г¤Г«Гї ГЇГ°ГЁГ§Г \n\n\
 		%s",
 		error_string
 	);
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_CHANGE_PRICE, DIALOG_STYLE_INPUT,
-		""cl_orange"Изменить приз", temp_string,
-		"Далее", "Назад");
+		""cl_orange"Г€Г§Г¬ГҐГ­ГЁГІГј ГЇГ°ГЁГ§", temp_string,
+		"Г„Г Г«ГҐГҐ", "ГЌГ Г§Г Г¤");
 }
 
 
 
-// ---- Открывает подтверждение удаления конкретного приза
+// ---- ГЋГІГЄГ°Г»ГўГ ГҐГІ ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГҐ ГіГ¤Г Г«ГҐГ­ГЁГї ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГЇГ°ГЁГ§Г 
 stock ContSystem:PrizeDeleteAccept(playerid)
 {
 	return ShowPlayerDialog(playerid, DIALOG_CONT_PRIZE_DEL_ACCEPT, DIALOG_STYLE_MSGBOX,
-		""cl_orange"Удаление приза",
-		""cl_orange"- "cl_white"Вы действительно хотите удалить приз?",
-		"Да", "Нет");
+		""cl_orange"Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЇГ°ГЁГ§Г ",
+		""cl_orange"- "cl_white"Г‚Г» Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г® ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј ГЇГ°ГЁГ§?",
+		"Г„Г ", "ГЌГҐГІ");
 }
 
 //==============================================================================
@@ -1192,7 +1192,7 @@ stock ContSystem:OnPlayerKSChange(playerid, newkeys, oldkeys)
 				case CONTAINER_STATUS_AUCTION:
 				{
 					if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PLAYER_ID) == playerid)
-						return SendErrorMessage(playerid, "Вы уже поставили ставку на данный контейнер");
+						return SendErrorMessage(playerid, "Г‚Г» ГіГ¦ГҐ ГЇГ®Г±ГІГ ГўГЁГ«ГЁ Г±ГІГ ГўГЄГі Г­Г  Г¤Г Г­Г­Г»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ°");
 					else 
 						return ContSystem:ShowAcceptBid(playerid, GetPlayerDataEx(playerid, P_CONT_ID));
 				}
@@ -1222,7 +1222,7 @@ stock ContSystem:OnPlayerEditObject(playerid, playerobject, objectid, response, 
 			case EDIT_RESPONSE_FINAL:
 			{
 				/*
-					Логирование: администратор создал новый контейнер
+					Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г±Г®Г§Г¤Г Г« Г­Г®ГўГ»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ°
 				*/
 				DestroyObject(edit_player_container_id [playerid]);
 				edit_player_container_id [playerid] = INVALID_OBJECT_ID;
@@ -1248,7 +1248,7 @@ stock ContSystem:OnPlayerEditObject(playerid, playerobject, objectid, response, 
 			case EDIT_RESPONSE_FINAL:
 			{
 				/*
-					Логирование: администратор изменил местоположение контейнера %d
+					Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° ГЁГ§Г¬ГҐГ­ГЁГ« Г¬ГҐГ±ГІГ®ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  %d
 
 					GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 				*/
@@ -1292,16 +1292,16 @@ stock ContSystem:SecondTimer()
 
 						if(GetContainerData(container_id, EC_STOP_TIMER) <= 0)
 						{
-							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Поздравляем! Вы выиграли в авукционе за контейнер №%d", container_id+1);
-							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"У вас есть "cl_white"%d "cl_orange"минут(-ы) чтобы забрать приз из контейнера "cl_white"№%d "cl_orange"или продать его в фонд порта", CONTAINER_WIN_TIME, container_id+1);
-							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"По истечению "cl_white"%d "cl_orange"минут ваш приз будет автоматически добавлен вам", CONTAINER_WIN_TIME);
+							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"ГЏГ®Г§Г¤Г°Г ГўГ«ГїГҐГ¬! Г‚Г» ГўГ»ГЁГЈГ°Г Г«ГЁ Гў Г ГўГіГЄГ¶ГЁГ®Г­ГҐ Г§Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° В№%d", container_id+1);
+							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"Г“ ГўГ Г± ГҐГ±ГІГј "cl_white"%d "cl_orange"Г¬ГЁГ­ГіГІ(-Г») Г·ГІГ®ГЎГ» Г§Г ГЎГ°Г ГІГј ГЇГ°ГЁГ§ ГЁГ§ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  "cl_white"В№%d "cl_orange"ГЁГ«ГЁ ГЇГ°Г®Г¤Г ГІГј ГҐГЈГ® Гў ГґГ®Г­Г¤ ГЇГ®Г°ГІГ ", CONTAINER_WIN_TIME, container_id+1);
+							SendClientMessageEx(GetContainerData(container_id, EC_PLAYER_ID), -1, " "cl_orange"ГЏГ® ГЁГ±ГІГҐГ·ГҐГ­ГЁГѕ "cl_white"%d "cl_orange"Г¬ГЁГ­ГіГІ ГўГ Гё ГЇГ°ГЁГ§ ГЎГіГ¤ГҐГІ Г ГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁ Г¤Г®ГЎГ ГўГ«ГҐГ­ ГўГ Г¬", CONTAINER_WIN_TIME);
 							SetContainerData(container_id, EC_STATUS, CONTAINER_STATUS_WINNER_WAIT);
 							SetContainerData(container_id, EC_WAIT_TIMER, CONTAINER_WIN_TIME*60);
 							ContSystem:UpdateText(container_id);
 							GiveMoney(GetContainerData(container_id, EC_PLAYER_ID), -GetContainerData(container_id, EC_PRICE));
 
 							/*
-								Логирование: игрок GetContainerData(container_id, EC_PLAYER_ID) выиграл борьбу за контейнер conteiner_id+1
+								Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ GetContainerData(container_id, EC_PLAYER_ID) ГўГ»ГЁГЈГ°Г Г« ГЎГ®Г°ГјГЎГі Г§Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° conteiner_id+1
 							*/
 						}
 						else if(!IsPlayerInRangeOfPoint(GetContainerData(container_id, EC_PLAYER_ID), 
@@ -1310,7 +1310,7 @@ stock ContSystem:SecondTimer()
 							GetContainerData(container_id, EC_POS_Y),
 							GetContainerData(container_id, EC_POS_Z)))
 						{
-							SendInfoMessage(GetContainerData(container_id, EC_PLAYER_ID), "Ваша ставка за контейнер была аннулирована, вы отошли слишком далеко");
+							SendInfoMessage(GetContainerData(container_id, EC_PLAYER_ID), "Г‚Г ГёГ  Г±ГІГ ГўГЄГ  Г§Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° ГЎГ»Г«Г  Г Г­Г­ГіГ«ГЁГ°Г®ГўГ Г­Г , ГўГ» Г®ГІГ®ГёГ«ГЁ Г±Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®");
 							SetContainerData(container_id, EC_STATUS, CONTAINER_STATUS_WAIT);
 							SetContainerData(container_id, EC_PLAYER_ID, INVALID_PLAYER_ID);
 							ContSystem:UpdateText(container_id);
@@ -1416,16 +1416,16 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 					case 0:
 					{
 						if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) != CONTAINER_STATUS_WAIT)
-							SendErrorMessage(playerid, "Аукцион у данного контейнера уже начат");
+							SendErrorMessage(playerid, "ГЂГіГЄГ¶ГЁГ®Г­ Гі Г¤Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГіГ¦ГҐ Г­Г Г·Г ГІ");
 						else
 						{
 							/*
-								Логирование: администратор начал аукнцион у контейнера %d
+								Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г­Г Г·Г Г« Г ГіГЄГ­Г¶ГЁГ®Г­ Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  %d
 
 								GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 							*/
 
-							SendInfoMessage(playerid, "Вы начали аукцион у контейнера");
+							SendInfoMessage(playerid, "Г‚Г» Г­Г Г·Г Г«ГЁ Г ГіГЄГ¶ГЁГ®Г­ Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ");
 							ContSystem:StartAuction(GetPlayerDataEx(playerid, P_CONT_EDIT_ID));
 						}
 					}
@@ -1433,22 +1433,22 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 					{
 						if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_WAIT)
 						{
-							SendErrorMessage(playerid, "Аукцион за данный контейнер не начат");
+							SendErrorMessage(playerid, "ГЂГіГЄГ¶ГЁГ®Г­ Г§Г  Г¤Г Г­Г­Г»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° Г­ГҐ Г­Г Г·Г ГІ");
 						}
 						else if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) != CONTAINER_STATUS_AUCTION
 							|| GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_PLAYER_ID) != INVALID_PLAYER_ID)
 						{
-							SendErrorMessage(playerid, "За данный контейнер уже идёт борьба либо он ожидает открытия победителем");
+							SendErrorMessage(playerid, "Г‡Г  Г¤Г Г­Г­Г»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° ГіГ¦ГҐ ГЁГ¤ВёГІ ГЎГ®Г°ГјГЎГ  Г«ГЁГЎГ® Г®Г­ Г®Г¦ГЁГ¤Г ГҐГІ Г®ГІГЄГ°Г»ГІГЁГї ГЇГ®ГЎГҐГ¤ГЁГІГҐГ«ГҐГ¬");
 						}
 						else
 						{
 							/*
-								Логирование: администратор завершил аукнцион у контейнера %d
+								Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г§Г ГўГҐГ°ГёГЁГ« Г ГіГЄГ­Г¶ГЁГ®Г­ Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  %d
 
 								GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 							*/
 
-							SendInfoMessage(playerid, "Вы завершили аукцион у контейнера");
+							SendInfoMessage(playerid, "Г‚Г» Г§Г ГўГҐГ°ГёГЁГ«ГЁ Г ГіГЄГ¶ГЁГ®Г­ Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ");
 							SetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS, CONTAINER_STATUS_WAIT);
 							SetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_PLAYER_ID, INVALID_PLAYER_ID);
 							ContSystem:DeleteContObject(GetPlayerDataEx(playerid, P_CONT_EDIT_ID));
@@ -1460,26 +1460,26 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 					case 2:
 					{
 						if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_NONE)
-							SendErrorMessage(playerid, "Данного контейнера уже не существует");
+							SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 						else
 							ContSystem:ShowEditPrizeMenu(playerid, GetPlayerDataEx(playerid, P_CONT_EDIT_ID));
 					}
 					case 3:
 					{
 						if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_NONE)
-							SendErrorMessage(playerid, "Данного контейнера уже не существует");
+							SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 						else if(!IsPlayerInRangeOfPoint(playerid,
 							15.0, 
 							GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_POS_X),
 							GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_POS_Y),
 							GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_POS_Z)))
 						{
-							SendErrorMessage(playerid, "Вы далеко от изначального местоположения контейнера");
+							SendErrorMessage(playerid, "Г‚Г» Г¤Г Г«ГҐГЄГ® Г®ГІ ГЁГ§Г­Г Г·Г Г«ГјГ­Г®ГЈГ® Г¬ГҐГ±ГІГ®ГЇГ®Г«Г®Г¦ГҐГ­ГЁГї ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г ");
 						}
 						else if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_WINNER_WAIT
 							|| GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_PLAYER_ID) != INVALID_PLAYER_ID)
 						{
-							SendErrorMessage(playerid, "Данный контейнер сейчас ожидает пока приз заберёт игрок или за него идёт борьба");	
+							SendErrorMessage(playerid, "Г„Г Г­Г­Г»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° Г±ГҐГ©Г·Г Г± Г®Г¦ГЁГ¤Г ГҐГІ ГЇГ®ГЄГ  ГЇГ°ГЁГ§ Г§Г ГЎГҐГ°ВёГІ ГЁГЈГ°Г®ГЄ ГЁГ«ГЁ Г§Г  Г­ГҐГЈГ® ГЁГ¤ВёГІ ГЎГ®Г°ГјГЎГ ");	
 						}
 						else
 						{
@@ -1500,20 +1500,20 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 					case 4:
 					{
 						if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_NONE)
-							SendErrorMessage(playerid, "Данного контейнера уже не существует");
+							SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 						else if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_WINNER_WAIT
 							|| GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_PLAYER_ID) != INVALID_PLAYER_ID)
 						{
-							SendErrorMessage(playerid, "Данный контейнер сейчас ожидает пока приз заберёт игрок или за него идёт борьба");	
+							SendErrorMessage(playerid, "Г„Г Г­Г­Г»Г© ГЄГ®Г­ГІГҐГ©Г­ГҐГ° Г±ГҐГ©Г·Г Г± Г®Г¦ГЁГ¤Г ГҐГІ ГЇГ®ГЄГ  ГЇГ°ГЁГ§ Г§Г ГЎГҐГ°ВёГІ ГЁГЈГ°Г®ГЄ ГЁГ«ГЁ Г§Г  Г­ГҐГЈГ® ГЁГ¤ВёГІ ГЎГ®Г°ГјГЎГ ");	
 						}
 						else
 						{
 							/*
-								Логирование: администратор удалил контейнер %d
+								Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° ГіГ¤Г Г«ГЁГ« ГЄГ®Г­ГІГҐГ©Г­ГҐГ° %d
 
 								GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 							*/
-							SendInfoMessage(playerid, "Вы удалили контейнер");
+							SendInfoMessage(playerid, "Г‚Г» ГіГ¤Г Г«ГЁГ«ГЁ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°");
 							ContSystem:DeleteContainer(GetPlayerDataEx(playerid, P_CONT_EDIT_ID));
 						}
 					}
@@ -1528,7 +1528,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 				if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PLAYER_ID) != INVALID_PLAYER_ID)
 				{
 					if(GetPlayerDataEx(playerid, P_MONEY) < GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PRICE) + CONTAINER_BID_PRICE)
-						SendErrorMessage(playerid, "У вас не достаточно средств");
+						SendErrorMessage(playerid, "Г“ ГўГ Г± Г­ГҐ Г¤Г®Г±ГІГ ГІГ®Г·Г­Г® Г±Г°ГҐГ¤Г±ГІГў");
 					else
 					{
 						AddContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PRICE, +, CONTAINER_BID_PRICE);
@@ -1536,17 +1536,17 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 						SetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_STOP_TIMER, CONTAINER_STOP_AUCTION_TIME);
 						ContSystem:UpdateText(GetPlayerDataEx(playerid, P_CONT_ID));
 
-						SendInfoMessage(playerid, "Вы поставили ставку на контейнер. Не отходите далеко от контейнера, чтобы ставка не аннулировалась");
+						SendInfoMessage(playerid, "Г‚Г» ГЇГ®Г±ГІГ ГўГЁГ«ГЁ Г±ГІГ ГўГЄГі Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°. ГЌГҐ Г®ГІГµГ®Г¤ГЁГІГҐ Г¤Г Г«ГҐГЄГ® Г®ГІ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г , Г·ГІГ®ГЎГ» Г±ГІГ ГўГЄГ  Г­ГҐ Г Г­Г­ГіГ«ГЁГ°Г®ГўГ Г«Г Г±Гј");
 
 						/*
-							Логирование: игрок поставил GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PRICE) + CONTAINER_BID_PRICE долларов на контейнер GetPlayerDataEx(playerid, P_CONT_ID)+1
+							Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ ГЇГ®Г±ГІГ ГўГЁГ« GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PRICE) + CONTAINER_BID_PRICE Г¤Г®Г«Г«Г Г°Г®Гў Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° GetPlayerDataEx(playerid, P_CONT_ID)+1
 						*/
 					}
 				}
 				else
 				{
 					if(GetPlayerDataEx(playerid, P_MONEY) < GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_START_PRICE))
-						SendErrorMessage(playerid, "У вас не достаточно средств");
+						SendErrorMessage(playerid, "Г“ ГўГ Г± Г­ГҐ Г¤Г®Г±ГІГ ГІГ®Г·Г­Г® Г±Г°ГҐГ¤Г±ГІГў");
 					else
 					{
 						SetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_PRICE, GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_START_PRICE));
@@ -1554,10 +1554,10 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 						SetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_STOP_TIMER, CONTAINER_STOP_AUCTION_TIME);
 						ContSystem:UpdateText(GetPlayerDataEx(playerid, P_CONT_ID));
 
-						SendInfoMessage(playerid, "Вы поставили ставку на контейнер. Не отходите далеко от контейнера, чтобы ставка не аннулировалась");
+						SendInfoMessage(playerid, "Г‚Г» ГЇГ®Г±ГІГ ГўГЁГ«ГЁ Г±ГІГ ГўГЄГі Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°. ГЌГҐ Г®ГІГµГ®Г¤ГЁГІГҐ Г¤Г Г«ГҐГЄГ® Г®ГІ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г , Г·ГІГ®ГЎГ» Г±ГІГ ГўГЄГ  Г­ГҐ Г Г­Г­ГіГ«ГЁГ°Г®ГўГ Г«Г Г±Гј");
 
 						/*
-							Логирование: игрок поставил GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_START_PRICE) долларов на контейнер GetPlayerDataEx(playerid, P_CONT_ID)+1
+							Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: ГЁГЈГ°Г®ГЄ ГЇГ®Г±ГІГ ГўГЁГ« GetContainerData(GetPlayerDataEx(playerid, P_CONT_ID), EC_START_PRICE) Г¤Г®Г«Г«Г Г°Г®Гў Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ° GetPlayerDataEx(playerid, P_CONT_ID)+1
 						*/
 					}
 				}
@@ -1581,7 +1581,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetContainerData(GetPlayerDataEx(playerid, P_CONT_EDIT_ID), EC_STATUS) == CONTAINER_STATUS_NONE)
-					SendErrorMessage(playerid, "Данного контейнера уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else
 				{
 					switch(listitem)
@@ -1600,7 +1600,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				/*
-					Логирование: администратор изменил класс у контейнера %d на класс %s
+					Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° ГЁГ§Г¬ГҐГ­ГЁГ« ГЄГ«Г Г±Г± Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  %d Г­Г  ГЄГ«Г Г±Г± %s
 
 					GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 					container_class_str [listitem+1]
@@ -1620,7 +1620,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				/*
-					Логирование: администратор изменил тип у контейнера %d на класс %s
+					Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° ГЁГ§Г¬ГҐГ­ГЁГ« ГІГЁГЇ Гі ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  %d Г­Г  ГЄГ«Г Г±Г± %s
 
 					GetPlayerDataEx(playerid, P_CONT_EDIT_ID)+1
 					container_type_str [listitem+1]
@@ -1683,10 +1683,10 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 				else
 				{
 					/*
-						Логирование: администратор создал новый приз для аукциона контейнеров
+						Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г±Г®Г§Г¤Г Г« Г­Г®ГўГ»Г© ГЇГ°ГЁГ§ Г¤Г«Гї Г ГіГЄГ¶ГЁГ®Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў
 					*/
 
-					SendInfoMessage(playerid, "Вы создали новый приз для аукциона контейнеров");
+					SendInfoMessage(playerid, "Г‚Г» Г±Г®Г§Г¤Г Г«ГЁ Г­Г®ГўГ»Г© ГЇГ°ГЁГ§ Г¤Г«Гї Г ГіГЄГ¶ГЁГ®Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў");
 					ContSystem:CreateNewPrize(GetPlayerDataEx(playerid, P_ADD_PRIZE_CLASS), GetPlayerDataEx(playerid, P_ADD_PRIZE_TYPE), strval(inputtext));
 				}
 			}
@@ -1701,14 +1701,14 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			{
 				if(strval(inputtext) < 0)
 				{
-					ContSystem:ShowAddNewPrizePrice(playerid, ""cl_grey"Корректно укажите цену");
+					ContSystem:ShowAddNewPrizePrice(playerid, ""cl_grey"ГЉГ®Г°Г°ГҐГЄГІГ­Г® ГіГЄГ Г¦ГЁГІГҐ Г¶ГҐГ­Гі");
 				}
 				else
 				{
 					/*
-						Логирование: администратор создал новый приз для аукциона контейнеров
+						Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г±Г®Г§Г¤Г Г« Г­Г®ГўГ»Г© ГЇГ°ГЁГ§ Г¤Г«Гї Г ГіГЄГ¶ГЁГ®Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў
 					*/
-					SendInfoMessage(playerid, "Вы создали новый приз для аукциона контейнеров");
+					SendInfoMessage(playerid, "Г‚Г» Г±Г®Г§Г¤Г Г«ГЁ Г­Г®ГўГ»Г© ГЇГ°ГЁГ§ Г¤Г«Гї Г ГіГЄГ¶ГЁГ®Г­Г  ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г®Гў");
 					ContSystem:CreateNewPrize(GetPlayerDataEx(playerid, P_ADD_PRIZE_CLASS), GetPlayerDataEx(playerid, P_ADD_PRIZE_TYPE), GetPlayerDataEx(playerid, P_ADD_PRIZE_VALUE), strval(inputtext));
 				}
 			}
@@ -1721,7 +1721,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_SQL_ID) == -1)
-					SendErrorMessage(playerid, "Данного приза уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else
 				{
 					switch(listitem)
@@ -1743,7 +1743,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_SQL_ID) == -1)
-					SendErrorMessage(playerid, "Данного приза уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else
 				{
 					SetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_CLASS, listitem+1);
@@ -1769,7 +1769,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_SQL_ID) == -1)
-					SendErrorMessage(playerid, "Данного приза уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else
 				{
 					SetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_TYPE, listitem+1);
@@ -1795,7 +1795,7 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_SQL_ID) == -1)
-					SendErrorMessage(playerid, "Данного приза уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else
 				{
 					SetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_VALUE, strval(inputtext));
@@ -1812,9 +1812,9 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				if(GetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_SQL_ID) == -1)
-					SendErrorMessage(playerid, "Данного приза уже не существует");
+					SendErrorMessage(playerid, "Г„Г Г­Г­Г®ГЈГ® ГЇГ°ГЁГ§Г  ГіГ¦ГҐ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ");
 				else if(strval(inputtext) <= 0)
-					SendErrorMessage(playerid, "Корректно введите цену");
+					SendErrorMessage(playerid, "ГЉГ®Г°Г°ГҐГЄГІГ­Г® ГўГўГҐГ¤ГЁГІГҐ Г¶ГҐГ­Гі");
 				else
 				{
 					SetPrizeData(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE), EC_PRIZE_PRICE, strval(inputtext));
@@ -1831,10 +1831,10 @@ stock ContSystem:OnDialogResponse(playerid, dialogid, response, listitem, inputt
 			else
 			{
 				ContSystem:DeletePrize(GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE));
-				SendInfoMessage(playerid, "Вы удалили приз");
+				SendInfoMessage(playerid, "Г‚Г» ГіГ¤Г Г«ГЁГ«ГЁ ГЇГ°ГЁГ§");
 
 				/*
-					Логирование: администратор %d удалил приз %d
+					Г‹Г®ГЈГЁГ°Г®ГўГ Г­ГЁГҐ: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° %d ГіГ¤Г Г«ГЁГ« ГЇГ°ГЁГ§ %d
 
 					playerid
 					GetPlayerDataEx(playerid, P_CONT_EDIT_PRIZE)
